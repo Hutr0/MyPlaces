@@ -9,6 +9,8 @@ import UIKit
 
 class NewPlaceViewController: UITableViewController {
 
+    @IBOutlet weak var imageOfPlace: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,7 +48,7 @@ class NewPlaceViewController: UITableViewController {
 
 // MARK: - Text field delegate
 
-extension NewPlaceViewController: UITextFieldDelegate {
+extension NewPlaceViewController: UITextFieldDelegate, UINavigationControllerDelegate {
     
     // Скрываем клавиатуру по нажатию на Done
     
@@ -58,15 +60,24 @@ extension NewPlaceViewController: UITextFieldDelegate {
 
 // MARK: - Work with image
 
-extension NewPlaceViewController {
+extension NewPlaceViewController: UIImagePickerControllerDelegate {
     
     func chooseImagePicker(source: UIImagePickerController.SourceType) {
         
         if UIImagePickerController.isSourceTypeAvailable(source) {
             let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
             imagePicker.allowsEditing = true
             imagePicker.sourceType = source
             present(imagePicker, animated: true, completion: nil)
         }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        imageOfPlace.image = info[.editedImage] as? UIImage
+        imageOfPlace.contentMode = .scaleAspectFill
+        imageOfPlace.clipsToBounds = true
+        dismiss(animated: true, completion: nil)
     }
 }
