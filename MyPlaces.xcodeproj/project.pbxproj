@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E05F33AF2552EBA8005BA694 /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F33AE2552EBA8005BA694 /* PlaceModel.swift */; };
 		E0CE48322551E0AF003D8EFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CE48312551E0AF003D8EFD /* AppDelegate.swift */; };
 		E0CE48342551E0AF003D8EFD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CE48332551E0AF003D8EFD /* SceneDelegate.swift */; };
 		E0CE48392551E0AF003D8EFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0CE48372551E0AF003D8EFD /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E05F33AE2552EBA8005BA694 /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
 		E0CE482E2551E0AF003D8EFD /* MyPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0CE48312551E0AF003D8EFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0CE48332551E0AF003D8EFD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E05F33A92552EA97005BA694 /* Main Screen */ = {
+			isa = PBXGroup;
+			children = (
+				E0CE485225521AA9003D8EFD /* MainViewController.swift */,
+				E0F85639255238A6007AF859 /* Cell.swift */,
+			);
+			path = "Main Screen";
+			sourceTree = "<group>";
+		};
 		E0CE48252551E0AF003D8EFD = {
 			isa = PBXGroup;
 			children = (
@@ -60,8 +71,8 @@
 			children = (
 				E0CE48312551E0AF003D8EFD /* AppDelegate.swift */,
 				E0CE48332551E0AF003D8EFD /* SceneDelegate.swift */,
-				E0CE485225521AA9003D8EFD /* MainViewController.swift */,
-				E0F85639255238A6007AF859 /* Cell.swift */,
+				E05F33A92552EA97005BA694 /* Main Screen */,
+				E05F33AE2552EBA8005BA694 /* PlaceModel.swift */,
 				E0CE48372551E0AF003D8EFD /* Main.storyboard */,
 				E0CE483A2551E0B0003D8EFD /* Assets.xcassets */,
 				E0CE483C2551E0B0003D8EFD /* LaunchScreen.storyboard */,
@@ -142,6 +153,7 @@
 			files = (
 				E0CE485325521AA9003D8EFD /* MainViewController.swift in Sources */,
 				E0F8563A255238A6007AF859 /* Cell.swift in Sources */,
+				E05F33AF2552EBA8005BA694 /* PlaceModel.swift in Sources */,
 				E0CE48322551E0AF003D8EFD /* AppDelegate.swift in Sources */,
 				E0CE48342551E0AF003D8EFD /* SceneDelegate.swift in Sources */,
 			);
