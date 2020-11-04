@@ -31,13 +31,13 @@ class MainViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Cell
 
         cell.restaurantImage.image = UIImage(named: restaurantNames[indexPath.row])
-        cell.restaurantImage.layer.cornerRadius = (cell.frame.height - (cell.stackView.layoutMargins.bottom + cell.stackView.layoutMargins.top)) / 2
+        cell.restaurantImage.layer.cornerRadius = (cell.restaurantImage.frame.size.height) / 2
         cell.restaurantLabel.text = restaurantNames[indexPath.row]
 
         return cell
     }
     
-    // MARK: TableViewDelegate
+    // MARK: - Table view delegate
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 85
