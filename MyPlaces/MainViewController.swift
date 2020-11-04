@@ -8,7 +8,7 @@
 import UIKit
 
 class MainViewController: UITableViewController {
-
+    
     let restaurantNames = ["Балкан Гриль", "Бочка", "Вкусные истории",
                            "Дастархан", "Индокитай", "Классик",
                            "Шок", "Bonsai", "Burger Heroes", "Kitchen",
@@ -28,11 +28,19 @@ class MainViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Cell
 
-        cell.textLabel?.text = restaurantNames[indexPath.row]
+        cell.restaurantImage.image = UIImage(named: restaurantNames[indexPath.row])
+        cell.restaurantImage.layer.cornerRadius = (cell.frame.height - (cell.stackView.layoutMargins.bottom + cell.stackView.layoutMargins.top)) / 2
+        cell.restaurantLabel.text = restaurantNames[indexPath.row]
 
         return cell
+    }
+    
+    // MARK: TableViewDelegate
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 85
     }
 
     /*
