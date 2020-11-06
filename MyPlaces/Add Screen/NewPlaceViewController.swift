@@ -67,7 +67,6 @@ class NewPlaceViewController: UITableViewController {
     }
     
     func saveNewPlace() {
-        
         var image: UIImage?
         
         if imageIsChanged {
