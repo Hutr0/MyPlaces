@@ -71,6 +71,7 @@
                                     <outlet property="restaurantImage" destination="Aph-sF-dKa" id="TZ7-nr-zrO"/>
                                     <outlet property="restaurantLabel" destination="t5b-LR-0I1" id="AJS-Eo-qf2"/>
                                     <outlet property="typeLabel" destination="0yC-uF-C8z" id="By2-13-Fe8"/>
+                                    <segue destination="7G2-gr-TMs" kind="show" identifier="showDetail" id="jmv-TH-k33"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -79,7 +80,7 @@
                             <outlet property="delegate" destination="Mqq-Rg-p0r" id="ozx-a9-CRp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Places" id="gTJ-iq-6kl">
+                    <navigationItem key="navigationItem" title="My Places" largeTitleDisplayMode="never" id="gTJ-iq-6kl">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="FrC-ZZ-qfR">
                             <connections>
                                 <segue destination="ukK-oD-AHi" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Q2L-K3-NJ7"/>
@@ -89,7 +90,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6mS-7U-fIT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="150.76923076923077" y="64.691943127962077"/>
+            <point key="canvasLocation" x="180" y="65"/>
         </scene>
         <!--New Place-->
         <scene sceneID="kIQ-8p-D81">
@@ -236,7 +237,7 @@
                             <outlet property="delegate" destination="7G2-gr-TMs" id="2kv-pL-Cl7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="New Place" id="nIN-xK-2Ft">
+                    <navigationItem key="navigationItem" title="New Place" largeTitleDisplayMode="always" id="nIN-xK-2Ft">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="VGp-Kx-vBt">
                             <connections>
                                 <action selector="cancelAction:" destination="7G2-gr-TMs" id="83K-L0-kdD"/>
@@ -259,17 +260,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xS0-pt-JIJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="lJ4-O1-Hdc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1927.6923076923076" y="64.691943127962077"/>
+            <point key="canvasLocation" x="960" y="65"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YhG-O7-bAw">
             <objects>
                 <navigationController id="Waq-16-dJp" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CaD-rH-fVn">
-                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="CaD-rH-fVn">
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="24"/>
+                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="24"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="40"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -278,7 +282,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DZc-mM-zQy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-755" y="65"/>
+            <point key="canvasLocation" x="-612" y="65"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8li-Js-3YL">
@@ -289,17 +293,26 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0MA-fj-b2u">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="24"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xC0-J3-NV7">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="7G2-gr-TMs" kind="relationship" relationship="rootViewController" id="q62-9K-DGz"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wjw-kh-rGb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1068" y="65"/>
+            <point key="canvasLocation" x="960" y="-693"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="jmv-TH-k33"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Photo" width="194.66667175292969" height="195.66667175292969"/>
         <systemColor name="systemBackgroundColor">
