@@ -17,6 +17,7 @@
 		E0CE483E2551E0B0003D8EFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0CE483C2551E0B0003D8EFD /* LaunchScreen.storyboard */; };
 		E0CE485325521AA9003D8EFD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CE485225521AA9003D8EFD /* MainViewController.swift */; };
 		E0D877CD25565DE000373D28 /* Storage Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D877CC25565DE000373D28 /* Storage Manager.swift */; };
+		E0D877D4255677A500373D28 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D877D3255677A500373D28 /* TableViewController.swift */; };
 		E0F8563A255238A6007AF859 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F85639255238A6007AF859 /* Cell.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		E0CE483F2551E0B0003D8EFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0CE485225521AA9003D8EFD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E0D877CC25565DE000373D28 /* Storage Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storage Manager.swift"; sourceTree = "<group>"; };
+		E0D877D3255677A500373D28 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		E0F85639255238A6007AF859 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +89,7 @@
 		E0CE48252551E0AF003D8EFD = {
 			isa = PBXGroup;
 			children = (
+				E0D877D3255677A500373D28 /* TableViewController.swift */,
 				E0CE48302551E0AF003D8EFD /* MyPlaces */,
 				E0CE482F2551E0AF003D8EFD /* Products */,
 				003A270D021F4FDF58FA9A77 /* Pods */,
@@ -244,6 +247,7 @@
 				E0CE485325521AA9003D8EFD /* MainViewController.swift in Sources */,
 				E0D877CD25565DE000373D28 /* Storage Manager.swift in Sources */,
 				E05F33B4255307B1005BA694 /* NewPlaceViewController.swift in Sources */,
+				E0D877D4255677A500373D28 /* TableViewController.swift in Sources */,
 				E0F8563A255238A6007AF859 /* Cell.swift in Sources */,
 				E05F33AF2552EBA8005BA694 /* PlaceModel.swift in Sources */,
 				E0CE48322551E0AF003D8EFD /* AppDelegate.swift in Sources */,
