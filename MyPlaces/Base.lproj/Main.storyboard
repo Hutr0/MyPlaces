@@ -195,6 +195,9 @@
                                     <segment title="Date"/>
                                     <segment title="Name"/>
                                 </segments>
+                                <connections>
+                                    <action selector="sortSelection:" destination="lut-Gr-IrS" eventType="valueChanged" id="YcJ-1P-9qT"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Nef-id-ksu">
                                 <rect key="frame" x="0.0" y="129" width="390" height="714"/>
@@ -276,7 +279,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Places" largeTitleDisplayMode="never" id="Th0-ld-Bcj">
-                        <barButtonItem key="leftBarButtonItem" image="AZ" id="jWb-Yr-etT"/>
+                        <barButtonItem key="leftBarButtonItem" image="AZ" id="jWb-Yr-etT">
+                            <connections>
+                                <action selector="reversedSorting:" destination="lut-Gr-IrS" id="wOm-gb-Spq"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="nvv-2t-vNc">
                             <connections>
                                 <segue destination="ukK-oD-AHi" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="JIK-IL-dTv"/>
@@ -284,6 +291,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="reversedSortingButton" destination="jWb-Yr-etT" id="EM6-7h-FFl"/>
+                        <outlet property="segmentedControl" destination="x0V-dV-qAA" id="3Wb-KW-HDh"/>
                         <outlet property="tableView" destination="Nef-id-ksu" id="qYa-hd-Kr2"/>
                     </connections>
                 </viewController>
@@ -311,7 +320,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DZc-mM-zQy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-612" y="65"/>
+            <point key="canvasLocation" x="-578" y="65"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8li-Js-3YL">
