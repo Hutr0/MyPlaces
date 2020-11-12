@@ -11,10 +11,12 @@ import RealmSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    private let version: UInt64 = 1
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let config = Realm.Configuration(schemaVersion: 1) { (migration, oldSchemaVersion) in
-            if oldSchemaVersion < 1 {}
+        let config = Realm.Configuration(schemaVersion: self.version) { (migration, oldSchemaVersion) in
+            if oldSchemaVersion < self.version {}
         }
         Realm.Configuration.defaultConfiguration = config
         
