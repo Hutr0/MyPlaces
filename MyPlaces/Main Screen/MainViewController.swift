@@ -28,12 +28,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         places = realm.objects(Place.self)
         
-        // Setup the search controller
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search"
-        navigationItem.searchController = searchController
-        definesPresentationContext = true
+//        // Setup the search controller
+//        searchController.searchResultsUpdater = self
+//        searchController.obscuresBackgroundDuringPresentation = false
+//        searchController.searchBar.placeholder = "Search"
+//        navigationItem.searchController = searchController
+//        definesPresentationContext = true
     }
     
     // MARK: - Table view data source
@@ -118,14 +118,14 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 }
 
-extension MainViewController: UISearchResultsUpdating {
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        <#code#>
-    }
-    
-    private func filterContentForSearchtext(_ searchText: String) {
-        
-        filteredPlaces = places.filter(<#T##predicate: NSPredicate##NSPredicate#>)
-    }
-}
+//extension MainViewController: UISearchResultsUpdating {
+//    
+//    func updateSearchResults(for searchController: UISearchController) {
+//        <#code#>
+//    }
+//    
+//    private func filterContentForSearchtext(_ searchText: String) {
+//        
+//        filteredPlaces = places.filter(<#T##predicate: NSPredicate##NSPredicate#>)
+//    }
+//}
