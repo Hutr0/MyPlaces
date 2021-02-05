@@ -13,6 +13,7 @@ class NewPlaceViewController: UITableViewController {
     var imageIsChanged = false
 
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    
     @IBOutlet weak var placeImage: UIImageView!
     @IBOutlet weak var placeName: UITextField!
     @IBOutlet weak var placeLocation: UITextField!
@@ -38,9 +39,8 @@ class NewPlaceViewController: UITableViewController {
             let cameraIcon = #imageLiteral(resourceName: "camera")
             let photoIcon = #imageLiteral(resourceName: "photo")
             
-            let actionSheet = UIAlertController(title: nil,
-                                                message: nil,
-                                                preferredStyle: .actionSheet)
+            let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            
             let camera = UIAlertAction(title: "Camera", style: .default) { _ in
                 self.chooseImagePicker(source: .camera)
             }
@@ -66,12 +66,15 @@ class NewPlaceViewController: UITableViewController {
     }
     
     func savePlace() {
+        
         var image: UIImage?
+        
         if imageIsChanged {
             image = placeImage.image
         } else {
             image = #imageLiteral(resourceName: "imagePlaceholder")
         }
+        
         let imageData = image?.pngData()
         
         let newPlace = Place.init(name: placeName.text!,
@@ -118,7 +121,7 @@ class NewPlaceViewController: UITableViewController {
     }
 }
 
-// MARK: - Text field delegate
+// MARK: - Text field delegat
 
 extension NewPlaceViewController: UITextFieldDelegate, UINavigationControllerDelegate {
     

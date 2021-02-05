@@ -10,10 +10,11 @@ import RealmSwift
 
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    private let searchController = UISearchController(searchResultsController: nil)
     private var places: Results<Place>!
-    private var filteredPlaces: Results<Place>!
     private var ascendingSorting = true
+    
+    private let searchController = UISearchController(searchResultsController: nil)
+    private var filteredPlaces: Results<Place>!
     private var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else { return false }
         return text.isEmpty
@@ -28,12 +29,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         places = realm.objects(Place.self)
         
-//        // Setup the search controller
-//        searchController.searchResultsUpdater = self
-//        searchController.obscuresBackgroundDuringPresentation = false
-//        searchController.searchBar.placeholder = "Search"
-//        navigationItem.searchController = searchController
-//        definesPresentationContext = true
+        // Setup the search controller
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
     
     // MARK: - Table view data source
@@ -47,17 +48,29 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let place = places[indexPath.row]
         
-        cell.restaurantImage.image = UIImage(data: place.imageData!)
-        cell.restaurantImage.layer.cornerRadius = (cell.restaurantImage.frame.size.height) / 2
-        
         cell.restaurantLabel.text = place.name
         cell.locationLabel.text = place.location
         cell.typeLabel.text = place.type
+        
+        cell.restaurantImage.image = UIImage(data: place.imageData!)
+        cell.restaurantImage.layer.cornerRadius = (cell.restaurantImage.frame.size.height) / 2
         
         return cell
     }
     
     // MARK: - Table view delegate
+    
+//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//
+//        let place = places[indexPath.row]
+//
+//        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (_, _, _) in
+//            StorageManager.deleteObject(place)
+//            tableView.deleteRows(at: [indexPath], with: .automatic)
+//        }
+//
+//        return UISwipeActionsConfiguration(actions: [deleteAction])
+//    }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
@@ -118,14 +131,17 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 }
 
-//extension MainViewController: UISearchResultsUpdating {
-//    
-//    func updateSearchResults(for searchController: UISearchController) {
-//        <#code#>
-//    }
-//    
-//    private func filterContentForSearchtext(_ searchText: String) {
-//        
-//        filteredPlaces = places.filter(<#T##predicate: NSPredicate##NSPredicate#>)
-//    }
-//}
+extension MainViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        filterContentForSearchtext(searchController.searchBar.text!)
+    }
+    
+    private func filterContentForSearchtext(_ searchText: String) {
+        
+        filteredPlaces = places.filter("name CONTAINS[c] %@ OR location CONTAINS[c] %@", searchText, searchText)
+        
+        tableView.reloadData()
+    }
+}
