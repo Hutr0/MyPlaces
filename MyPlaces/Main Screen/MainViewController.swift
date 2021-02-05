@@ -34,6 +34,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
         navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
+        
+//        // Здесь я заменил navigationItem на tableView.tableHeaderView, потому что в первом случае поиск перекрывал сортировку. Второе - установка экрана в положение, в котором посик будет скрыт
+//        tableView.tableHeaderView = searchController.searchBar
+//        tableView.contentOffset = CGPoint(x: 0.0, y: searchController.searchBar.frame.size.height)
+        
         definesPresentationContext = true
     }
     
