@@ -11,7 +11,7 @@ import RealmSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    private let version: UInt64 = 1
+    private let version: UInt64 = 2
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         

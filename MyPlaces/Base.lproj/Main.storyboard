@@ -186,6 +186,7 @@
                         <outlet property="placeImage" destination="0Sg-B1-OHF" id="WIr-3z-Ucu"/>
                         <outlet property="placeLocation" destination="lhS-Ke-ZpY" id="CLN-Qu-ND2"/>
                         <outlet property="placeName" destination="zzM-9O-SHf" id="hfW-aY-ShJ"/>
+                        <outlet property="placeRating" destination="xoX-jh-GT3" id="Msk-kY-5a5"/>
                         <outlet property="placeType" destination="RTB-gt-idY" id="l9O-lW-R0V"/>
                         <outlet property="saveButton" destination="P1h-qb-14g" id="xpj-HU-faJ"/>
                     </connections>
