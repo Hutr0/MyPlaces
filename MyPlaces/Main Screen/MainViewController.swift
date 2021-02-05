@@ -13,8 +13,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     private var places: Results<Place>!
     private var ascendingSorting = true
     
-    private let searchController = UISearchController(searchResultsController: nil)
     private var filteredPlaces: Results<Place>!
+    private let searchController = UISearchController(searchResultsController: nil)
     private var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else { return false }
         return text.isEmpty
