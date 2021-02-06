@@ -1,14 +1,13 @@
 //
-//  RatingControl.swift
+//  RatingOnTable.swift
 //  MyPlaces
 //
-//  Created by Леонид Лукашевич on 05.02.2021.
+//  Created by Леонид Лукашевич on 06.02.2021.
 //
 
 import UIKit
 
-// @IBDesignable перед классом позвоялет отобразить все изменения сделанные в этом классе в storyboard
-@IBDesignable class RatingControl: UIStackView {
+@IBDesignable class RatingOnTable: UIStackView {
     
     // MARK: Properties
     
@@ -18,9 +17,7 @@ import UIKit
             updateButtonSelectionStates()
         }
     }
-    
-    // @IBInspectable позволяет использовать свойство в настройках storyboard
-    @IBInspectable var starSize: CGSize = CGSize(width: 44.0, height: 44.0) {
+    @IBInspectable var starSize: CGSize = CGSize(width: 16.0, height: 16.0) {
         didSet {
             setupButtons()
         }
@@ -30,33 +27,17 @@ import UIKit
             setupButtons()
         }
     }
-
+    
     // MARK: Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupButtons()
     }
-    
+
     required init(coder: NSCoder) {
         super.init(coder: coder)
         setupButtons()
-    }
-    
-    // MARK: Button Action
-    
-    @objc func ratingButtonTapped(button: UIButton) {
-        
-        guard let index = ratingButtons.firstIndex(of: button) else { return }
-        
-        // Calculate the rating of the selected button
-        let selectedRating = index + 1
-        
-        if selectedRating == rating {
-            rating = 0
-        } else {
-            rating = selectedRating
-        }
     }
     
     // MARK: Private Methods
@@ -74,31 +55,18 @@ import UIKit
         let bundle = Bundle(for: type(of: self))
         let filledStar = UIImage(named: "filledStar", in: bundle, compatibleWith: self.traitCollection)
         let emptyStar = UIImage(named: "emptyStar", in: bundle, compatibleWith: self.traitCollection)
-        let highlightedStar = UIImage(named: "highlightedStar", in: bundle, compatibleWith: self.traitCollection)
         
         for _ in 0..<starCount {
-            
-            // Create the button
             let button = UIButton()
             
-            // Set the button images
-            button.setImage(emptyStar, for: .normal)
             button.setImage(filledStar, for: .selected)
-            button.setImage(highlightedStar, for: .highlighted)
-            button.setImage(highlightedStar, for: [.highlighted, .selected])
+            button.setImage(emptyStar, for: .normal)
             
-            // Add constraints
             button.translatesAutoresizingMaskIntoConstraints = false
             button.heightAnchor.constraint(equalToConstant: starSize.height).isActive = true
             button.widthAnchor.constraint(equalToConstant: starSize.width).isActive = true
             
-            //Setup the button action
-            button.addTarget(self, action: #selector(ratingButtonTapped(button:)), for: .touchUpInside)
-            
-            // Add the button to the stack
             addArrangedSubview(button)
-            
-            // Add the new button on the rating button array
             ratingButtons.append(button)
         }
         updateButtonSelectionStates()
@@ -109,5 +77,4 @@ import UIKit
             button.isSelected = index < rating
         }
     }
-
 }
