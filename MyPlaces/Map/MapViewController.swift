@@ -74,22 +74,22 @@ class MapViewController: UIViewController {
     
     private func checkLocationAutorization() {
         switch locationManager.authorizationStatus {
-        case .authorizedWhenInUse:
-            mapView.showsUserLocation = true
-            break
-        case .denied:
-            // alert controller
-            break
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-            break
-        case .restricted:
-            // alert controller
-            break
-        case .authorizedAlways:
-            break
-        @unknown default:
-            print("New cases was added")
+            case .authorizedWhenInUse:
+                mapView.showsUserLocation = true
+                break
+            case .denied:
+                // alert controller
+                break
+            case .notDetermined:
+                locationManager.requestWhenInUseAuthorization()
+                break
+            case .restricted:
+                // alert controller
+                break
+            case .authorizedAlways:
+                break
+            @unknown default:
+                print("New cases was added")
         }
     }
 }
@@ -120,8 +120,7 @@ extension MapViewController: MKMapViewDelegate {
 }
 
 extension MapViewController: CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkLocationAutorization()
     }
 }
