@@ -9,8 +9,13 @@ import UIKit
 
 class Cell: UITableViewCell {
 
-    @IBOutlet weak var restaurantImage: UIImageView!
-    @IBOutlet weak var restaurantLabel: UILabel!
+    @IBOutlet weak var imageOfPlace: UIImageView! {
+        didSet {
+            imageOfPlace.layer.cornerRadius = (imageOfPlace.frame.size.height) / 2
+            imageOfPlace.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
 }

@@ -262,9 +262,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="imageOfPlace" destination="jnU-hs-fXz" id="0gG-A4-2Ht"/>
                                             <outlet property="locationLabel" destination="dtk-OJ-ExT" id="wTt-WR-eFt"/>
-                                            <outlet property="restaurantImage" destination="jnU-hs-fXz" id="0gG-A4-2Ht"/>
-                                            <outlet property="restaurantLabel" destination="5bW-81-zyp" id="Y6g-Ms-5TY"/>
+                                            <outlet property="nameLabel" destination="5bW-81-zyp" id="Y6g-Ms-5TY"/>
                                             <outlet property="typeLabel" destination="RVj-1p-ylO" id="4v8-1E-0sY"/>
                                             <segue destination="7G2-gr-TMs" kind="show" identifier="showDetail" id="jSX-SV-DNa"/>
                                         </connections>
