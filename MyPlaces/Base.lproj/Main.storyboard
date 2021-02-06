@@ -155,11 +155,30 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="252" placeholderIntrinsicHeight="44" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xoX-jh-GT3" customClass="RatingControl" customModule="MyPlaces" customModuleProvider="target">
                                                     <rect key="frame" x="69" y="48" width="252" height="44"/>
                                                 </stackView>
+                                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="hSr-oG-mNB" customClass="CosmosView" customModule="Cosmos">
+                                                    <rect key="frame" x="75" y="48" width="240" height="44"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                            <real key="value" value="44"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="emptyBorderWidth">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="xoX-jh-GT3" firstAttribute="centerX" secondItem="gPb-HL-Tg4" secondAttribute="centerX" id="IzM-JP-FCu"/>
+                                                <constraint firstItem="hSr-oG-mNB" firstAttribute="centerX" secondItem="gPb-HL-Tg4" secondAttribute="centerX" id="Vow-Hq-RLb"/>
                                                 <constraint firstItem="xoX-jh-GT3" firstAttribute="centerY" secondItem="gPb-HL-Tg4" secondAttribute="centerY" id="p33-O7-ZGK"/>
+                                                <constraint firstItem="hSr-oG-mNB" firstAttribute="centerY" secondItem="gPb-HL-Tg4" secondAttribute="centerY" id="xnf-Kg-ncu"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="xoX-jh-GT3"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -183,6 +202,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cosmosView" destination="hSr-oG-mNB" id="Vzv-L1-hpo"/>
                         <outlet property="placeImage" destination="0Sg-B1-OHF" id="WIr-3z-Ucu"/>
                         <outlet property="placeLocation" destination="lhS-Ke-ZpY" id="CLN-Qu-ND2"/>
                         <outlet property="placeName" destination="zzM-9O-SHf" id="hfW-aY-ShJ"/>
@@ -194,7 +214,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xS0-pt-JIJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="lJ4-O1-Hdc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="960" y="65"/>
+            <point key="canvasLocation" x="960" y="64.691943127962077"/>
         </scene>
         <!--My Places-->
         <scene sceneID="v32-Dq-w1z">
@@ -225,32 +245,44 @@
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="So4-so-fA5">
-                                                            <rect key="frame" x="101" y="9.3333333333333357" width="273" height="66.333333333333314"/>
+                                                            <rect key="frame" x="101" y="9.3333333333333357" width="167" height="66.666666666666657"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bW-81-zyp">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="273" height="23.666666666666668"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="167" height="23.666666666666668"/>
                                                                     <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="18"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtk-OJ-ExT">
-                                                                    <rect key="frame" x="0.0" y="26.666666666666664" width="273" height="19.333333333333336"/>
+                                                                    <rect key="frame" x="0.0" y="26.666666666666664" width="167" height="19.666666666666664"/>
                                                                     <fontDescription key="fontDescription" name="Thonburi-Light" family="Thonburi" pointSize="15"/>
                                                                     <color key="textColor" red="0.36681420720000002" green="0.36681420720000002" blue="0.36681420720000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVj-1p-ylO">
-                                                                    <rect key="frame" x="0.0" y="49" width="273" height="17.333333333333329"/>
+                                                                    <rect key="frame" x="0.0" y="49.333333333333329" width="167" height="17.333333333333329"/>
                                                                     <fontDescription key="fontDescription" name="Thonburi-Light" family="Thonburi" pointSize="13"/>
                                                                     <color key="textColor" red="0.37647330759999997" green="0.37646564840000002" blue="0.37647080420000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
+                                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="90" placeholderIntrinsicHeight="14" translatesAutoresizingMaskIntoConstraints="NO" id="c3M-cU-X7L" customClass="CosmosView" customModule="Cosmos">
+                                                            <rect key="frame" x="284" y="35.666666666666664" width="90" height="14"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="90" id="bqD-vH-9ue"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                                    <real key="value" value="14"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="filledStar"/>
+                                                                <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="emptyStar"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="NO"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="So4-so-fA5" firstAttribute="top" secondItem="5IX-DJ-QAL" secondAttribute="top" constant="9.3333333333333357" id="weF-3T-zl2"/>
-                                                    </constraints>
                                                     <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="16" bottom="8" trailing="16"/>
                                                 </stackView>
                                             </subviews>
@@ -262,9 +294,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="cosmosView" destination="c3M-cU-X7L" id="NnH-H9-Lo3"/>
+                                            <outlet property="imageOfPlace" destination="jnU-hs-fXz" id="0gG-A4-2Ht"/>
                                             <outlet property="locationLabel" destination="dtk-OJ-ExT" id="wTt-WR-eFt"/>
-                                            <outlet property="restaurantImage" destination="jnU-hs-fXz" id="0gG-A4-2Ht"/>
-                                            <outlet property="restaurantLabel" destination="5bW-81-zyp" id="Y6g-Ms-5TY"/>
+                                            <outlet property="nameLabel" destination="5bW-81-zyp" id="Y6g-Ms-5TY"/>
                                             <outlet property="typeLabel" destination="RVj-1p-ylO" id="4v8-1E-0sY"/>
                                             <segue destination="7G2-gr-TMs" kind="show" identifier="showDetail" id="jSX-SV-DNa"/>
                                         </connections>
@@ -372,6 +405,12 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="c3M-cU-X7L">
+            <size key="intrinsicContentSize" width="90" height="14"/>
+        </designable>
+        <designable name="hSr-oG-mNB">
+            <size key="intrinsicContentSize" width="240" height="44"/>
+        </designable>
         <designable name="xoX-jh-GT3">
             <size key="intrinsicContentSize" width="252" height="44"/>
         </designable>
@@ -382,6 +421,8 @@
     <resources>
         <image name="AZ" width="25" height="24"/>
         <image name="Photo" width="194.66667175292969" height="195.66667175292969"/>
+        <image name="emptyStar" width="255" height="256"/>
+        <image name="filledStar" width="237.5" height="238"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
