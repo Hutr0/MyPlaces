@@ -47,7 +47,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if isFiltering {
             return filteredPlaces.count
         }
-        return places.isEmpty ? 0 : places.count
+        return places.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

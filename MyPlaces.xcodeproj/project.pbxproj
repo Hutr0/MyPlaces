@@ -19,6 +19,7 @@
 		E0CE485325521AA9003D8EFD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CE485225521AA9003D8EFD /* MainViewController.swift */; };
 		E0D877CD25565DE000373D28 /* Storage Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D877CC25565DE000373D28 /* Storage Manager.swift */; };
 		E0F08DDB25CE24EA00ED562E /* RatingOnTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F08DDA25CE24EA00ED562E /* RatingOnTable.swift */; };
+		E0F08DDF25CE2BEA00ED562E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F08DDE25CE2BEA00ED562E /* MapViewController.swift */; };
 		E0F8563A255238A6007AF859 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F85639255238A6007AF859 /* Cell.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		E0CE485225521AA9003D8EFD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E0D877CC25565DE000373D28 /* Storage Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storage Manager.swift"; sourceTree = "<group>"; };
 		E0F08DDA25CE24EA00ED562E /* RatingOnTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingOnTable.swift; sourceTree = "<group>"; };
+		E0F08DDE25CE2BEA00ED562E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E0F85639255238A6007AF859 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +126,7 @@
 				E05F33B225530780005BA694 /* Add Screen */,
 				E0D877C925565DAA00373D28 /* Data Model */,
 				E00DBC9325CDE88100C03483 /* Rating */,
+				E0F08DE125CE2BF200ED562E /* Map */,
 				E0CE48372551E0AF003D8EFD /* Main.storyboard */,
 				E0CE483A2551E0B0003D8EFD /* Assets.xcassets */,
 				E0CE483C2551E0B0003D8EFD /* LaunchScreen.storyboard */,
@@ -139,6 +142,14 @@
 				E0D877CC25565DE000373D28 /* Storage Manager.swift */,
 			);
 			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		E0F08DE125CE2BF200ED562E /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				E0F08DDE25CE2BEA00ED562E /* MapViewController.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +269,7 @@
 				E0CE485325521AA9003D8EFD /* MainViewController.swift in Sources */,
 				E0D877CD25565DE000373D28 /* Storage Manager.swift in Sources */,
 				E0F08DDB25CE24EA00ED562E /* RatingOnTable.swift in Sources */,
+				E0F08DDF25CE2BEA00ED562E /* MapViewController.swift in Sources */,
 				E05F33B4255307B1005BA694 /* NewPlaceViewController.swift in Sources */,
 				E0F8563A255238A6007AF859 /* Cell.swift in Sources */,
 				E00DBC9125CDE87400C03483 /* RatingControl.swift in Sources */,

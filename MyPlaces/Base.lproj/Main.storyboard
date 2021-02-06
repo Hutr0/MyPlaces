@@ -30,12 +30,25 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Photo" translatesAutoresizingMaskIntoConstraints="NO" id="0Sg-B1-OHF">
                                                     <rect key="frame" x="0.0" y="0.0" width="390" height="250"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Nj-y1-7Lx">
+                                                    <rect key="frame" x="320" y="189" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="cHM-Qe-GW3"/>
+                                                        <constraint firstAttribute="height" constant="50" id="rtE-Xj-qar"/>
+                                                    </constraints>
+                                                    <state key="normal" image="map"/>
+                                                    <connections>
+                                                        <segue destination="FkP-SI-vli" kind="presentation" identifier="showMap" modalPresentationStyle="fullScreen" id="8Sv-1D-8Cr"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="0Sg-B1-OHF" firstAttribute="leading" secondItem="GLT-va-TVl" secondAttribute="leading" id="LSy-im-mud"/>
                                                 <constraint firstAttribute="bottom" secondItem="0Sg-B1-OHF" secondAttribute="bottom" id="MU4-Jl-AMK"/>
+                                                <constraint firstItem="8Nj-y1-7Lx" firstAttribute="bottom" secondItem="GLT-va-TVl" secondAttribute="bottomMargin" id="bJZ-Vt-U9l"/>
                                                 <constraint firstItem="0Sg-B1-OHF" firstAttribute="top" secondItem="GLT-va-TVl" secondAttribute="top" id="gbG-x4-GbE"/>
                                                 <constraint firstAttribute="trailing" secondItem="0Sg-B1-OHF" secondAttribute="trailing" id="n0n-p8-KI5"/>
+                                                <constraint firstItem="8Nj-y1-7Lx" firstAttribute="trailing" secondItem="GLT-va-TVl" secondAttribute="trailingMargin" id="tZP-pL-5cE"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -196,6 +209,45 @@
             </objects>
             <point key="canvasLocation" x="960" y="65"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="h7f-ll-YRZ">
+            <objects>
+                <viewController id="FkP-SI-vli" customClass="MapViewController" customModule="MyPlaces" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KDU-jo-h25">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="chU-n3-wH0">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWl-WI-0PT">
+                                <rect key="frame" x="320" y="84" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="Dac-dY-S3b"/>
+                                    <constraint firstAttribute="height" constant="30" id="ioT-Yt-zPl"/>
+                                </constraints>
+                                <state key="normal" image="camcel"/>
+                                <connections>
+                                    <action selector="closeVC" destination="FkP-SI-vli" eventType="touchUpInside" id="CcS-Tu-W1l"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JfV-u5-RAo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="chU-n3-wH0" firstAttribute="top" secondItem="KDU-jo-h25" secondAttribute="top" id="3fK-xU-y0e"/>
+                            <constraint firstItem="JfV-u5-RAo" firstAttribute="trailing" secondItem="aWl-WI-0PT" secondAttribute="trailing" constant="40" id="6Pg-d8-4wP"/>
+                            <constraint firstItem="chU-n3-wH0" firstAttribute="trailing" secondItem="JfV-u5-RAo" secondAttribute="trailing" id="YeQ-XH-RCU"/>
+                            <constraint firstItem="chU-n3-wH0" firstAttribute="leading" secondItem="JfV-u5-RAo" secondAttribute="leading" id="ff9-3T-r7a"/>
+                            <constraint firstItem="aWl-WI-0PT" firstAttribute="top" secondItem="JfV-u5-RAo" secondAttribute="top" constant="40" id="t50-85-bZ3"/>
+                            <constraint firstAttribute="bottom" secondItem="chU-n3-wH0" secondAttribute="bottom" id="tm6-NZ-pqq"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="knm-Ar-SrK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1710.7692307692307" y="64.691943127962077"/>
+        </scene>
         <!--My Places-->
         <scene sceneID="v32-Dq-w1z">
             <objects>
@@ -225,22 +277,22 @@
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="So4-so-fA5">
-                                                            <rect key="frame" x="101" y="9.3333333333333357" width="57" height="66.333333333333314"/>
+                                                            <rect key="frame" x="101" y="9.3333333333333357" width="177" height="66.333333333333314"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bW-81-zyp">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="57" height="23.666666666666668"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="23.666666666666668"/>
                                                                     <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="18"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtk-OJ-ExT">
-                                                                    <rect key="frame" x="0.0" y="26.666666666666664" width="57" height="19.333333333333336"/>
+                                                                    <rect key="frame" x="0.0" y="26.666666666666664" width="177" height="19.333333333333336"/>
                                                                     <fontDescription key="fontDescription" name="Thonburi-Light" family="Thonburi" pointSize="15"/>
                                                                     <color key="textColor" red="0.36681420720000002" green="0.36681420720000002" blue="0.36681420720000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVj-1p-ylO">
-                                                                    <rect key="frame" x="0.0" y="49" width="57" height="17.333333333333329"/>
+                                                                    <rect key="frame" x="0.0" y="49" width="177" height="17.333333333333329"/>
                                                                     <fontDescription key="fontDescription" name="Thonburi-Light" family="Thonburi" pointSize="13"/>
                                                                     <color key="textColor" red="0.37647330759999997" green="0.37646564840000002" blue="0.37647080420000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <nil key="highlightedColor"/>
@@ -248,7 +300,15 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="69" translatesAutoresizingMaskIntoConstraints="NO" id="Giq-S2-xhT" customClass="RatingOnTable" customModule="MyPlaces" customModuleProvider="target">
-                                                            <rect key="frame" x="174" y="8" width="200" height="69"/>
+                                                            <rect key="frame" x="294" y="34.666666666666664" width="80" height="16"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="size" keyPath="starSize">
+                                                                    <size key="value" width="16" height="16"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="starCount">
+                                                                    <integer key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </stackView>
                                                     </subviews>
                                                     <constraints>
@@ -389,6 +449,8 @@
     <resources>
         <image name="AZ" width="25" height="24"/>
         <image name="Photo" width="194.66667175292969" height="195.66667175292969"/>
+        <image name="camcel" width="128" height="128"/>
+        <image name="map" width="50" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
