@@ -63,7 +63,9 @@ class MapViewController: UIViewController {
             setupLocationManager()
             checkLocationAutorization()
         } else {
-            // alert controller
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.showAlert(title: "Location Services are Disabled", message: "To endable it go: Settings -> Privacy -> Location Services and turn On")
+            }
         }
     }
     
@@ -78,19 +80,29 @@ class MapViewController: UIViewController {
                 mapView.showsUserLocation = true
                 break
             case .denied:
-                // alert controller
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.showAlert(title: "Location Services are denied", message: "")
+                }
                 break
             case .notDetermined:
                 locationManager.requestWhenInUseAuthorization()
                 break
             case .restricted:
-                // alert controller
                 break
             case .authorizedAlways:
                 break
             @unknown default:
                 print("New cases was added")
         }
+    }
+    
+    private func showAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
 }
 
