@@ -7,11 +7,13 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MapViewController: UIViewController {
 
     var place = Place()
     let annotationIdentifier = "annotationIdentifier"
+    let locationManager = CLLocationManager()
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -20,6 +22,7 @@ class MapViewController: UIViewController {
         mapView.delegate = self
         
         setupPlacemark()
+        checkLocationServices()
     }
     
     @IBAction func closeVC() {
@@ -53,6 +56,42 @@ class MapViewController: UIViewController {
             self.mapView.selectAnnotation(annotation, animated: true)
         }
     }
+    
+    private func checkLocationServices() {
+        
+        if CLLocationManager.locationServicesEnabled() {
+            setupLocationManager()
+            checkLocationAutorization()
+        } else {
+            // alert controller
+        }
+    }
+    
+    private func setupLocationManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
+    private func checkLocationAutorization() {
+        switch locationManager.authorizationStatus {
+        case .authorizedWhenInUse:
+            mapView.showsUserLocation = true
+            break
+        case .denied:
+            // alert controller
+            break
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+            break
+        case .restricted:
+            // alert controller
+            break
+        case .authorizedAlways:
+            break
+        @unknown default:
+            print("New cases was added")
+        }
+    }
 }
 
 extension MapViewController: MKMapViewDelegate {
@@ -60,11 +99,11 @@ extension MapViewController: MKMapViewDelegate {
         
         guard !(annotation is MKUserLocation) else { return nil }
         
-        // Создаём переиспользуемую анатацию ссредствами dequeueReusableAnnotationView
-        var annotatioView = mapView.dequeueReusableAnnotationView(withIdentifier: "annotationIdentifier") as? MKPinAnnotationView
+        // Создаём переиспользуемую анатацию средствами dequeueReusableAnnotationView
+        var annotatioView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier) as? MKPinAnnotationView
         
         if annotatioView == nil {
-            annotatioView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "annotationIdentifier")
+            annotatioView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
             annotatioView?.canShowCallout = true
         }
         
@@ -77,5 +116,12 @@ extension MapViewController: MKMapViewDelegate {
         }
         
         return annotatioView
+    }
+}
+
+extension MapViewController: CLLocationManagerDelegate {
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        checkLocationAutorization()
     }
 }
