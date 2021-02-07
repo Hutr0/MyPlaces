@@ -9,8 +9,14 @@ import UIKit
 import MapKit
 import CoreLocation
 
+protocol MapViewControllerDelegate {
+    
+    func getAddress(address: String?)
+}
+
 class MapViewController: UIViewController {
 
+    var mapViewContrellerDelegate: MapViewControllerDelegate?
     var place = Place()
     let annotationIdentifier = "annotationIdentifier"
     let locationManager = CLLocationManager()
@@ -39,6 +45,8 @@ class MapViewController: UIViewController {
     
     @IBAction func doneButtonPressed() {
         
+        mapViewContrellerDelegate?.getAddress(address: addressLabel.text)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func closeVC() {
@@ -179,7 +187,7 @@ extension MapViewController: MKMapViewDelegate {
         let center = getCenterLocation(mapView: mapView)
         let geocoder = CLGeocoder()
         
-        geocoder.reverseGeocodeLocation(center) { (placemarks, error) in
+        geocoder.reverseGeocodeLocation(center, preferredLocale: Locale(identifier: "ru_RU")) { (placemarks, error) in
             
             if let error = error {
                 print(error)
@@ -189,11 +197,14 @@ extension MapViewController: MKMapViewDelegate {
             guard let placemarks = placemarks else { return }
             
             let placemark = placemarks.first
+            let cityName = placemark?.locality
             let streetName = placemark?.thoroughfare
             let buildNumber = placemark?.subThoroughfare
             
-            if streetName != nil && buildNumber != nil {
-                self.addressLabel.text = "\(streetName!), \(buildNumber!)"
+            if cityName != nil && streetName != nil && buildNumber != nil {
+                self.addressLabel.text = "\(cityName!), \(streetName!), \(buildNumber!)"
+            } else if cityName != nil && streetName != nil {
+                self.addressLabel.text = "\(cityName!), \(streetName!)"
             } else if streetName != nil {
                 self.addressLabel.text = streetName!
             } else {
