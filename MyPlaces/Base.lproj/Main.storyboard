@@ -38,7 +38,7 @@
                                                     </constraints>
                                                     <state key="normal" image="map"/>
                                                     <connections>
-                                                        <segue destination="FkP-SI-vli" kind="presentation" identifier="showMap" modalPresentationStyle="fullScreen" id="8Sv-1D-8Cr"/>
+                                                        <segue destination="FkP-SI-vli" kind="presentation" identifier="showPlace" modalPresentationStyle="fullScreen" id="8Sv-1D-8Cr"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -96,16 +96,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jL5-pf-d5P">
-                                                    <rect key="frame" x="16" y="8" width="358" height="63"/>
+                                                    <rect key="frame" x="16" y="8" width="319" height="63"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBK-mp-RYp">
-                                                            <rect key="frame" x="0.0" y="0.0" width="358" height="28.666666666666668"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="319" height="28.666666666666668"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Place location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lhS-Ke-ZpY">
-                                                            <rect key="frame" x="0.0" y="36.666666666666664" width="358" height="26.333333333333336"/>
+                                                            <rect key="frame" x="0.0" y="36.666666666666664" width="319" height="26.333333333333336"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                                             <connections>
@@ -114,10 +114,23 @@
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGY-uH-ZQf">
+                                                    <rect key="frame" x="343" y="44.333333333333336" width="27" height="27.000000000000007"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="27" id="V1B-d2-96d"/>
+                                                        <constraint firstAttribute="height" constant="27" id="zBQ-xI-gUP"/>
+                                                    </constraints>
+                                                    <state key="normal" image="Placeholder"/>
+                                                    <connections>
+                                                        <segue destination="FkP-SI-vli" kind="presentation" identifier="getAddress" id="stj-tc-1Cc"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="GGY-uH-ZQf" firstAttribute="centerY" secondItem="lhS-Ke-ZpY" secondAttribute="centerY" id="5if-xC-sBj"/>
+                                                <constraint firstAttribute="trailing" secondItem="GGY-uH-ZQf" secondAttribute="trailing" constant="20" symbolic="YES" id="79A-F7-zLZ"/>
                                                 <constraint firstAttribute="bottom" secondItem="jL5-pf-d5P" secondAttribute="bottom" constant="4" id="DZG-Ui-Kjv"/>
-                                                <constraint firstAttribute="trailing" secondItem="jL5-pf-d5P" secondAttribute="trailing" constant="16" id="gwq-mD-iUU"/>
+                                                <constraint firstItem="GGY-uH-ZQf" firstAttribute="leading" secondItem="jL5-pf-d5P" secondAttribute="trailing" constant="8" id="eaf-rh-5SQ"/>
                                                 <constraint firstItem="jL5-pf-d5P" firstAttribute="top" secondItem="iVB-ag-5GL" secondAttribute="top" constant="8" id="kmj-ro-arV"/>
                                                 <constraint firstItem="jL5-pf-d5P" firstAttribute="leading" secondItem="iVB-ag-5GL" secondAttribute="leading" constant="16" id="sYj-4v-DhH"/>
                                             </constraints>
@@ -207,7 +220,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xS0-pt-JIJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="lJ4-O1-Hdc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="960" y="65"/>
+            <point key="canvasLocation" x="960" y="64.691943127962077"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="h7f-ll-YRZ">
@@ -231,14 +244,37 @@
                                     <action selector="closeVC" destination="FkP-SI-vli" eventType="touchUpInside" id="CcS-Tu-W1l"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8c-br-U52">
-                                <rect key="frame" x="310" y="717" width="50" height="50"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pin" translatesAutoresizingMaskIntoConstraints="NO" id="hqo-aw-zzM">
+                                <rect key="frame" x="175" y="382" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="5FR-to-3gv"/>
-                                    <constraint firstAttribute="width" constant="50" id="rIg-Fx-XeE"/>
+                                    <constraint firstAttribute="width" constant="40" id="S8H-1U-jt8"/>
+                                    <constraint firstAttribute="height" constant="40" id="g10-ra-HeX"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zQz-Ke-Try">
+                                <rect key="frame" x="16" y="150" width="358" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mng-Kl-lhP">
+                                <rect key="frame" x="158" y="756" width="74" height="48"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneButtonPressed" destination="FkP-SI-vli" eventType="touchUpInside" id="2y9-yh-jZL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8c-br-U52">
+                                <rect key="frame" x="315" y="676" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="5FR-to-3gv"/>
+                                    <constraint firstAttribute="width" constant="40" id="rIg-Fx-XeE"/>
                                 </constraints>
                                 <color key="tintColor" systemColor="labelColor"/>
-                                <state key="normal" image="arrow.up.circle" catalog="system">
+                                <state key="normal" image="location.circle" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                                 </state>
                                 <connections>
@@ -251,15 +287,25 @@
                         <constraints>
                             <constraint firstItem="chU-n3-wH0" firstAttribute="top" secondItem="KDU-jo-h25" secondAttribute="top" id="3fK-xU-y0e"/>
                             <constraint firstItem="JfV-u5-RAo" firstAttribute="trailing" secondItem="aWl-WI-0PT" secondAttribute="trailing" constant="40" id="6Pg-d8-4wP"/>
-                            <constraint firstItem="JfV-u5-RAo" firstAttribute="trailing" secondItem="b8c-br-U52" secondAttribute="trailing" constant="30" id="GKC-eG-QQr"/>
+                            <constraint firstItem="JfV-u5-RAo" firstAttribute="trailing" secondItem="b8c-br-U52" secondAttribute="trailing" constant="35" id="GKC-eG-QQr"/>
+                            <constraint firstItem="mng-Kl-lhP" firstAttribute="centerX" secondItem="KDU-jo-h25" secondAttribute="centerX" id="Nhh-wV-nKi"/>
+                            <constraint firstItem="hqo-aw-zzM" firstAttribute="centerY" secondItem="KDU-jo-h25" secondAttribute="centerY" constant="-20" id="R4B-RF-rpd"/>
+                            <constraint firstItem="JfV-u5-RAo" firstAttribute="trailing" secondItem="zQz-Ke-Try" secondAttribute="trailing" constant="16" id="RU3-jM-D6X"/>
+                            <constraint firstAttribute="bottom" secondItem="mng-Kl-lhP" secondAttribute="bottom" constant="40" id="Xyo-5W-mSj"/>
                             <constraint firstItem="chU-n3-wH0" firstAttribute="trailing" secondItem="JfV-u5-RAo" secondAttribute="trailing" id="YeQ-XH-RCU"/>
                             <constraint firstItem="chU-n3-wH0" firstAttribute="leading" secondItem="JfV-u5-RAo" secondAttribute="leading" id="ff9-3T-r7a"/>
+                            <constraint firstItem="zQz-Ke-Try" firstAttribute="top" secondItem="KDU-jo-h25" secondAttribute="top" constant="150" id="nfk-oz-uA9"/>
+                            <constraint firstItem="zQz-Ke-Try" firstAttribute="leading" secondItem="JfV-u5-RAo" secondAttribute="leading" constant="16" id="q6k-sv-3eq"/>
                             <constraint firstItem="aWl-WI-0PT" firstAttribute="top" secondItem="JfV-u5-RAo" secondAttribute="top" constant="40" id="t50-85-bZ3"/>
                             <constraint firstAttribute="bottom" secondItem="chU-n3-wH0" secondAttribute="bottom" id="tm6-NZ-pqq"/>
-                            <constraint firstItem="b8c-br-U52" firstAttribute="top" secondItem="chU-n3-wH0" secondAttribute="bottom" constant="-127" id="yDO-ot-bFO"/>
+                            <constraint firstItem="b8c-br-U52" firstAttribute="top" secondItem="chU-n3-wH0" secondAttribute="bottom" constant="-168" id="yDO-ot-bFO"/>
+                            <constraint firstItem="hqo-aw-zzM" firstAttribute="centerX" secondItem="KDU-jo-h25" secondAttribute="centerX" id="yJ0-Af-uuS"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addressLabel" destination="zQz-Ke-Try" id="ZZr-8O-SX7"/>
+                        <outlet property="doneButton" destination="mng-Kl-lhP" id="1OC-f5-asN"/>
+                        <outlet property="mapPinImage" destination="hqo-aw-zzM" id="npK-Sd-Hvb"/>
                         <outlet property="mapView" destination="chU-n3-wH0" id="Yvh-wx-8o5"/>
                     </connections>
                 </viewController>
@@ -296,22 +342,22 @@
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="So4-so-fA5">
-                                                            <rect key="frame" x="101" y="9.3333333333333357" width="57" height="66.333333333333314"/>
+                                                            <rect key="frame" x="101" y="9.3333333333333357" width="177" height="66.333333333333314"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bW-81-zyp">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="57" height="23.666666666666668"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="23.666666666666668"/>
                                                                     <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="18"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtk-OJ-ExT">
-                                                                    <rect key="frame" x="0.0" y="26.666666666666664" width="57" height="19.333333333333336"/>
+                                                                    <rect key="frame" x="0.0" y="26.666666666666664" width="177" height="19.333333333333336"/>
                                                                     <fontDescription key="fontDescription" name="Thonburi-Light" family="Thonburi" pointSize="15"/>
                                                                     <color key="textColor" red="0.36681420720000002" green="0.36681420720000002" blue="0.36681420720000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVj-1p-ylO">
-                                                                    <rect key="frame" x="0.0" y="49" width="57" height="17.333333333333329"/>
+                                                                    <rect key="frame" x="0.0" y="49" width="177" height="17.333333333333329"/>
                                                                     <fontDescription key="fontDescription" name="Thonburi-Light" family="Thonburi" pointSize="13"/>
                                                                     <color key="textColor" red="0.37647330759999997" green="0.37646564840000002" blue="0.37647080420000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <nil key="highlightedColor"/>
@@ -319,7 +365,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="69" translatesAutoresizingMaskIntoConstraints="NO" id="Giq-S2-xhT" customClass="RatingOnTable" customModule="MyPlaces" customModuleProvider="target">
-                                                            <rect key="frame" x="174" y="8" width="200" height="69"/>
+                                                            <rect key="frame" x="294" y="34.666666666666664" width="80" height="16"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="size" keyPath="starSize">
                                                                     <size key="value" width="16" height="16"/>
@@ -463,13 +509,16 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
+        <segue reference="8Sv-1D-8Cr"/>
         <segue reference="jSX-SV-DNa"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AZ" width="25" height="24"/>
         <image name="Photo" width="194.66667175292969" height="195.66667175292969"/>
-        <image name="arrow.up.circle" catalog="system" width="128" height="121"/>
+        <image name="Pin" width="40" height="40"/>
+        <image name="Placeholder" width="20" height="20"/>
         <image name="camcel" width="128" height="128"/>
+        <image name="location.circle" catalog="system" width="128" height="121"/>
         <image name="map" width="50" height="50"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
