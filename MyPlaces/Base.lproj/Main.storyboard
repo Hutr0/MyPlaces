@@ -282,16 +282,29 @@
                                     <action selector="centerViewInUserLocation" destination="FkP-SI-vli" eventType="touchUpInside" id="IGH-pR-G93"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G98-jq-rjr">
+                                <rect key="frame" x="170" y="754" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="EUU-ys-Mf9"/>
+                                    <constraint firstAttribute="width" constant="50" id="y0e-fi-otq"/>
+                                </constraints>
+                                <state key="normal" image="GetDirection"/>
+                                <connections>
+                                    <action selector="goButtonPressed" destination="FkP-SI-vli" eventType="touchUpInside" id="z1r-g5-6Vx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JfV-u5-RAo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="chU-n3-wH0" firstAttribute="top" secondItem="KDU-jo-h25" secondAttribute="top" id="3fK-xU-y0e"/>
                             <constraint firstItem="JfV-u5-RAo" firstAttribute="trailing" secondItem="aWl-WI-0PT" secondAttribute="trailing" constant="40" id="6Pg-d8-4wP"/>
+                            <constraint firstItem="G98-jq-rjr" firstAttribute="centerX" secondItem="KDU-jo-h25" secondAttribute="centerX" id="G3a-lO-83i"/>
                             <constraint firstItem="JfV-u5-RAo" firstAttribute="trailing" secondItem="b8c-br-U52" secondAttribute="trailing" constant="35" id="GKC-eG-QQr"/>
                             <constraint firstItem="mng-Kl-lhP" firstAttribute="centerX" secondItem="KDU-jo-h25" secondAttribute="centerX" id="Nhh-wV-nKi"/>
                             <constraint firstItem="hqo-aw-zzM" firstAttribute="centerY" secondItem="KDU-jo-h25" secondAttribute="centerY" constant="-20" id="R4B-RF-rpd"/>
                             <constraint firstItem="JfV-u5-RAo" firstAttribute="trailing" secondItem="zQz-Ke-Try" secondAttribute="trailing" constant="16" id="RU3-jM-D6X"/>
+                            <constraint firstAttribute="bottom" secondItem="G98-jq-rjr" secondAttribute="bottom" constant="40" id="UbF-bD-N6k"/>
                             <constraint firstAttribute="bottom" secondItem="mng-Kl-lhP" secondAttribute="bottom" constant="40" id="Xyo-5W-mSj"/>
                             <constraint firstItem="chU-n3-wH0" firstAttribute="trailing" secondItem="JfV-u5-RAo" secondAttribute="trailing" id="YeQ-XH-RCU"/>
                             <constraint firstItem="chU-n3-wH0" firstAttribute="leading" secondItem="JfV-u5-RAo" secondAttribute="leading" id="ff9-3T-r7a"/>
@@ -306,6 +319,7 @@
                     <connections>
                         <outlet property="addressLabel" destination="zQz-Ke-Try" id="ZZr-8O-SX7"/>
                         <outlet property="doneButton" destination="mng-Kl-lhP" id="1OC-f5-asN"/>
+                        <outlet property="goButton" destination="G98-jq-rjr" id="jaD-Af-wIB"/>
                         <outlet property="mapPinImage" destination="hqo-aw-zzM" id="npK-Sd-Hvb"/>
                         <outlet property="mapView" destination="chU-n3-wH0" id="Yvh-wx-8o5"/>
                     </connections>
@@ -343,22 +357,22 @@
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="So4-so-fA5">
-                                                            <rect key="frame" x="101" y="9.3333333333333357" width="177" height="66.333333333333314"/>
+                                                            <rect key="frame" x="101" y="9.3333333333333357" width="57" height="66.333333333333314"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bW-81-zyp">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="23.666666666666668"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="57" height="23.666666666666668"/>
                                                                     <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="18"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtk-OJ-ExT">
-                                                                    <rect key="frame" x="0.0" y="26.666666666666664" width="177" height="19.333333333333336"/>
+                                                                    <rect key="frame" x="0.0" y="26.666666666666664" width="57" height="19.333333333333336"/>
                                                                     <fontDescription key="fontDescription" name="Thonburi-Light" family="Thonburi" pointSize="15"/>
                                                                     <color key="textColor" red="0.36681420720000002" green="0.36681420720000002" blue="0.36681420720000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVj-1p-ylO">
-                                                                    <rect key="frame" x="0.0" y="49" width="177" height="17.333333333333329"/>
+                                                                    <rect key="frame" x="0.0" y="49" width="57" height="17.333333333333329"/>
                                                                     <fontDescription key="fontDescription" name="Thonburi-Light" family="Thonburi" pointSize="13"/>
                                                                     <color key="textColor" red="0.37647330759999997" green="0.37646564840000002" blue="0.37647080420000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <nil key="highlightedColor"/>
@@ -366,7 +380,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="69" translatesAutoresizingMaskIntoConstraints="NO" id="Giq-S2-xhT" customClass="RatingOnTable" customModule="MyPlaces" customModuleProvider="target">
-                                                            <rect key="frame" x="294" y="34.666666666666664" width="80" height="16"/>
+                                                            <rect key="frame" x="174" y="8" width="200" height="69"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="size" keyPath="starSize">
                                                                     <size key="value" width="16" height="16"/>
@@ -515,6 +529,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AZ" width="25" height="24"/>
+        <image name="GetDirection" width="50" height="50"/>
         <image name="Photo" width="194.66667175292969" height="195.66667175292969"/>
         <image name="Pin" width="40" height="40"/>
         <image name="Placeholder" width="20" height="20"/>
