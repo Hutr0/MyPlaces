@@ -32,7 +32,9 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         mapView.delegate = self
         
+        // Configuration the outlets
         addressLabel.text = ""
+        doneButton.layer.cornerRadius = doneButton.frame.size.height / 2.5
         
         setupMapView()
         checkLocationServices()
