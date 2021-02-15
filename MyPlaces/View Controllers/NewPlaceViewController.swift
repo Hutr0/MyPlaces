@@ -136,7 +136,7 @@ class NewPlaceViewController: UITableViewController {
     }
 }
 
-// MARK: - Text field delegat
+// MARK: - Text field delegate
 
 extension NewPlaceViewController: UITextFieldDelegate, UINavigationControllerDelegate {
     
